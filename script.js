@@ -47,3 +47,11 @@ const year = document.querySelector("[data-year]");
 if (year) {
   year.textContent = String(new Date().getFullYear());
 }
+
+const emailLink = document.querySelector("[data-email-link]");
+if (emailLink) {
+  const emailLocal = ["Mao", "Tech", "Mail"].join("");
+  const emailDomain = ["gmail", "com"].join(".");
+  const emailAddress = [emailLocal, emailDomain].join("@");
+  emailLink.href = `mailto:${emailAddress}`;
+}
