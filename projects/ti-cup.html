@@ -10,12 +10,20 @@
     <meta property="og:description" content="An 88.9 FPS calibrated K230 vision system integrated with an STM32F407 controller and ball-balancing mechanism.">
     <meta property="og:url" content="https://maotechh.github.io/projects/ti-cup.html">
     <meta property="og:image" content="https://maotechh.github.io/assets/images/ti-vision.png">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="960">
+    <meta property="og:image:alt" content="K230 vision output showing the calibrated beam centerline and detected steel ball">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="TI Cup Ball-Balancing Vehicle | Hanze Li">
+    <meta name="twitter:description" content="An 88.9 FPS calibrated K230 vision system integrated with STM32F407 control and a ball-balancing mechanism.">
+    <meta name="twitter:image" content="https://maotechh.github.io/assets/images/ti-vision.png">
     <title>TI Cup Ball-Balancing Vehicle | Hanze Li</title>
+    <link rel="canonical" href="https://maotechh.github.io/projects/ti-cup.html">
     <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32.png?v=20260903-2">
     <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png?v=20260903-2">
     <script>document.documentElement.classList.add("js");</script>
-    <link rel="stylesheet" href="../styles.css?v=20260903">
+    <link rel="stylesheet" href="../styles.css?v=20260903-2">
     <script src="../script.js?v=20260903" defer></script>
   </head>
   <body class="project-page">
@@ -31,7 +39,7 @@
           <a href="../index.html#work">Selected work</a>
           <a href="../index.html#research">Research</a>
           <a href="../index.html#leadership">Leadership</a>
-          <a class="nav-resume" href="../assets/docs/Hanze-Li-Resume.pdf?v=20260903-3">Resume</a>
+          <a class="nav-resume" href="../assets/docs/Hanze-Li-Resume.pdf?v=20260903-4">Resume</a>
         </nav>
       </div>
     </header>
@@ -66,7 +74,7 @@
 
       <dl class="project-facts">
         <div><dt>Team captain</dt><dd>Vision and mechanical integration lead</dd></div>
-        <div><dt>88.935 FPS</dt><dd>640 × 480 grayscale tracking</dd></div>
+        <div><dt>88.9 FPS</dt><dd>Real-time ball tracking</dd></div>
         <div><dt>≈ 1 mm</dt><dd>Static coordinate error after calibration</dd></div>
         <div><dt>First Prize</dt><dd>2026 TI Cup Shanghai competition</dd></div>
       </dl>
@@ -76,14 +84,13 @@
           <h2>Vision measurement</h2>
           <div class="detail-copy">
             <p>
-              The K230 processes a fixed region of interest in 640 × 480 grayscale mode,
-              extracts the dark steel-ball candidate, and converts the result from image
-              coordinates to physical position before transmission.
+              The K230 performs real-time grayscale ball detection and geometric calibration,
+              converting camera observations into physical position for closed-loop control.
             </p>
             <ul>
-              <li>Reached 88.935 FPS on the assembled mechanism with approximately 0.1 cm static coordinate error.</li>
-              <li>Recorded 1,000 valid detection frames and 3,000 empty-beam frames without a false detection in the documented static runs.</li>
-              <li>Separated the measurement camera from the video-transmission subsystem so encoding and wireless transfer do not delay the control measurement.</li>
+              <li>Reached 88.9 FPS on the assembled mechanism with approximately 1 mm static coordinate error after calibration.</li>
+              <li>Separated control measurement from wireless video transmission to preserve real-time response.</li>
+              <li>Implemented robust ball localization and physical-coordinate output across the required beam motion.</li>
             </ul>
           </div>
         </div>
@@ -94,19 +101,19 @@
           <h2>Mechanical and controller integration</h2>
           <div class="detail-copy">
             <p>
-              I integrated the calibrated camera with the beam, hinge, screw-driven
-              actuator, and vehicle structure. The vision module sends physical position,
-              validity, timing, and session information to the STM32F407 controller.
+              I designed and integrated the calibrated camera, beam, hinge, screw-driven
+              actuator, and vehicle structure, then connected the vision subsystem to the
+              STM32F407 controller.
             </p>
             <ul>
-              <li>Used 460,800 baud UART with COBS framing and CRC-16 so the controller can recover frame boundaries and reject corrupted measurements.</li>
-              <li>Defined a clear interface between K230 measurement and the STM32F407 control software, which receives data through USART2 DMA.</li>
+              <li>Defined the interface between K230 measurement and STM32F407 closed-loop control.</li>
               <li>Coordinated camera placement and actuator geometry to preserve visibility across the required beam motion.</li>
+              <li>Led the team-level integration of vision, control, mechanical actuation, vehicle motion, and video transmission.</li>
             </ul>
             <p class="evidence-note">
-              The complete team system combined STM32F407 control, K230 measurement,
-              separate ESP32-S3 and Raspberry Pi video transmission, vehicle drive, and
-              the balancing actuator. The responsibilities above identify my personal work.
+              The complete team system combined vehicle motion, ball-balancing control,
+              real-time vision, and wireless video. The responsibilities above identify my
+              personal work.
             </p>
           </div>
         </div>
@@ -123,7 +130,7 @@
             </p>
             <div class="project-hero-actions">
               <a class="button button-dark" href="https://res.nuedc-training.com.cn/topic/2026/topic_140.html">Read the official problem</a>
-              <a class="text-link" href="https://nuedc-sh.sjtu.edu.cn/post_detail.php?id=56">Shanghai competition information</a>
+              <a class="text-link" href="https://nuedc-sh.sjtu.edu.cn/post_detail.php?id=61">Official Shanghai result</a>
             </div>
           </div>
         </div>

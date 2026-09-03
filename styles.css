@@ -489,10 +489,10 @@ input {
 .metric-grid {
   display: grid;
   grid-column: 2;
-  grid-row: 1 / span 5;
+  grid-row: 1 / span 4;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1px;
-  align-self: stretch;
+  align-self: start;
   margin: 0;
   border: 1px solid var(--line);
   background: var(--line);
@@ -502,7 +502,7 @@ input {
   display: flex;
   min-height: 120px;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   padding: 16px;
   background: var(--surface);
 }
@@ -769,6 +769,25 @@ input {
 
 .research-copy .text-link {
   margin-top: 13px;
+}
+
+.publication-entry .publication-authors {
+  color: var(--ink);
+  font-size: 15px;
+}
+
+.publication-entry .publication-venue {
+  margin-top: 7px;
+  font-size: 14px;
+}
+
+.publication-entry > p:nth-of-type(3) {
+  margin-top: 17px;
+}
+
+.publication-entry .publication-links {
+  margin-top: 15px;
+  padding-top: 0;
 }
 
 .capability-grid {
@@ -1043,8 +1062,11 @@ input {
 
 .project-hero-figure img {
   width: 100%;
-  max-height: 650px;
-  object-fit: cover;
+  height: auto;
+}
+
+.project-hero-figure picture {
+  width: 100%;
 }
 
 .project-facts {
@@ -1400,14 +1422,6 @@ input {
     padding: 22px;
   }
 
-  .project-card .project-image {
-    aspect-ratio: 2.15 / 1;
-  }
-
-  .project-card-body > p:not(.result-label, .ownership) {
-    display: none;
-  }
-
   #work .tag-list,
   .hardware-copy .tag-list {
     display: none;
@@ -1512,6 +1526,11 @@ input {
     margin-top: 34px;
   }
 
+  .project-hero-figure img {
+    max-height: none;
+    object-fit: contain;
+  }
+
   .project-facts {
     grid-template-columns: 1fr 1fr;
   }
@@ -1563,6 +1582,31 @@ input {
   .secondary-list h3,
   .research-list h3 {
     font-size: 24px;
+  }
+
+  .metric-grid,
+  .capability-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .metric-grid div {
+    min-height: 74px;
+    padding: 12px;
+  }
+
+  .metric-grid dd,
+  .capability-grid span {
+    font-size: 11px;
+  }
+
+  .capability-grid article {
+    padding: 18px;
+  }
+
+  .project-card-body,
+  .recognition article,
+  .project-facts div {
+    overflow-wrap: anywhere;
   }
 
   .leadership-metrics dt {
