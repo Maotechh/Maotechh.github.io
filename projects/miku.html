@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="MIKU is a four-issue LA32R out-of-order SoC led by Hanze Li for the 2026 Loongson Cup.">
+    <meta name="theme-color" content="#111817">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="MIKU LA32R Out-of-Order SoC | Hanze Li">
+    <meta property="og:description" content="A 100 MHz Artix-7 FPGA SoC running Linux 5.14, awarded national second prize in the 2026 Loongson Cup.">
+    <meta property="og:url" content="https://maotechh.github.io/projects/miku.html">
+    <meta property="og:image" content="https://maotechh.github.io/assets/images/miku-board.jpg">
+    <title>MIKU LA32R Out-of-Order SoC | Hanze Li</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32.png?v=20260903-2">
+    <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png?v=20260903-2">
+    <script>document.documentElement.classList.add("js");</script>
+    <link rel="stylesheet" href="../styles.css?v=20260903">
+    <script src="../script.js?v=20260903" defer></script>
+  </head>
+  <body class="project-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <div class="nav-shell">
+        <a class="brand" href="../index.html">
+          <span class="brand-name">Hanze Li</span>
+          <span class="brand-label">Embedded systems · ShanghaiTech</span>
+        </a>
+        <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+        <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+          <a href="../index.html#work">Selected work</a>
+          <a href="../index.html#research">Research</a>
+          <a href="../index.html#leadership">Leadership</a>
+          <a class="nav-resume" href="../assets/docs/Hanze-Li-Resume.pdf?v=20260903-2">Resume</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="project-hero">
+        <div class="project-hero-copy">
+          <p class="project-eyebrow">Team captain · National second prize · 2026</p>
+          <h1>MIKU LA32R Out-of-Order SoC</h1>
+          <p class="project-lead">
+            A four-issue SpinalHDL processor and FPGA/Linux platform developed for the
+            National Student Computer System Capability Competition, CPU Design Track (Loongson Cup).
+          </p>
+          <p class="project-role">
+            <strong>My responsibility:</strong> team leadership, CPU performance and timing
+            optimization, FPGA system integration, Linux 5.14 bring-up, kernel work, and
+            the final system demonstration.
+          </p>
+          <div class="project-hero-actions">
+            <a class="button button-dark" href="https://github.com/TossACoinTAC/NSCSCC2026-MIKU">System repository</a>
+            <a class="text-link" href="https://github.com/Maotechh/nscscc-linux-kernel">Linux kernel</a>
+          </div>
+        </div>
+        <figure class="project-hero-figure">
+          <picture>
+            <source type="image/webp" srcset="../assets/images/miku-board-640.webp 640w, ../assets/images/miku-board-1000.webp 1000w" sizes="(max-width: 1180px) calc(100vw - 48px), 1180px">
+            <img src="../assets/images/miku-board.jpg" alt="MIKU SoC running LoongArch32 Reduced Linux with a graphical desktop on the Artix-7 contest board" width="1600" height="900">
+          </picture>
+          <figcaption>MIKU running the competition Linux image and graphical environment on the FPGA platform.</figcaption>
+        </figure>
+      </section>
+
+      <dl class="project-facts">
+        <div><dt>Team captain</dt><dd>Four-person team from ShanghaiTech University</dd></div>
+        <div><dt>4.831×</dt><dd>System speedup over the official baseline</dd></div>
+        <div><dt>100 MHz</dt><dd>Timing-closed Artix-7 implementation</dd></div>
+        <div><dt>Second Prize</dt><dd>National CPU Design Track, 2026</dd></div>
+      </dl>
+
+      <section class="detail-band detail-band-surface">
+        <div class="page-shell detail-grid">
+          <h2>CPU performance and timing</h2>
+          <div class="detail-copy">
+            <p>
+              MIKU implements the LA32R instruction set in SpinalHDL with a four-issue
+              out-of-order pipeline. I worked across the microarchitecture and physical
+              implementation boundary instead of treating frequency and cycle count as
+              separate problems.
+            </p>
+            <ul>
+              <li>Optimized load-store queue behavior, L1 data-cache access, branch prediction, and reorder-buffer timing paths.</li>
+              <li>Integrated four fetch lanes, three-wide rename/dispatch/commit, four execution ports, five writeback paths, and a two-level cache hierarchy.</li>
+              <li>Reached 1.579× average IPC and 4.831× system speedup relative to the competition baseline in the official 20-program evaluation.</li>
+              <li>Closed the final Artix-7 implementation at 100 MHz with positive setup and hold timing margins.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="detail-band">
+        <div class="page-shell detail-grid">
+          <h2>Linux system integration</h2>
+          <div class="detail-copy">
+            <p>
+              The final entry was a complete computer system rather than a standalone CPU.
+              I integrated the processor, memory and peripherals with a Linux 5.14 and
+              Buildroot software environment for the competition demonstration.
+            </p>
+            <ul>
+              <li>Brought up the kernel on the custom LA32R SoC and maintained the project kernel repository.</li>
+              <li>Integrated framebuffer graphics, X11, USB HID input, and networking on the FPGA platform.</li>
+              <li>Integrated a 480 × 800 framebuffer, X11 desktop, PS/2 and USB input, and Ethernet networking for the final system.</li>
+            </ul>
+            <p class="evidence-note">
+              The public repositories include the SpinalHDL processor, FPGA platform,
+              build environment, architecture documentation, and Linux source.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="detail-band detail-band-surface">
+        <div class="page-shell detail-grid">
+          <h2>Competition result</h2>
+          <div class="detail-copy">
+            <p>
+              GeekPie_ received Second Prize in the 2026 National Student Computer System
+              Capability Competition, CPU Design Track (Loongson Cup). The final evaluation
+              covered benchmark performance, operating-system execution, an on-site custom
+              instruction task, and system demonstration and defense.
+            </p>
+            <div class="project-hero-actions">
+              <a class="button button-dark" href="https://github.com/TossACoinTAC/NSCSCC2026-MIKU">Inspect the system repository</a>
+              <a class="text-link" href="https://github.com/Maotechh/nscscc-cpu">Initial CPU repository</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <nav class="project-next page-shell" aria-label="Project navigation">
+        <a class="text-link" href="peak.html">Previous: PEAK</a>
+        <a class="text-link" href="ti-cup.html">Next: TI Cup system</a>
+      </nav>
+    </main>
+    <footer class="site-footer"><div class="page-shell footer-layout"><p>Hanze Li <span data-year>2026</span></p><p>Shanghai, China</p></div></footer>
+  </body>
+</html>
