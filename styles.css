@@ -548,8 +548,7 @@ input {
   margin-top: 24px;
 }
 
-.project-note,
-.research-note {
+.project-note {
   color: var(--ink-soft);
   font-size: 12px;
 }
@@ -748,8 +747,7 @@ input {
 }
 
 .research-copy .research-result,
-.research-copy .collaboration-line,
-.research-copy .research-note {
+.research-copy .collaboration-line {
   margin-top: 13px;
 }
 
