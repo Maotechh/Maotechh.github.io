@@ -967,6 +967,13 @@ input {
   color: var(--ink-soft);
 }
 
+.contact-layout > div:first-child .contact-email {
+  margin-top: 6px;
+  color: var(--ink);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 14px;
+}
+
 .contact-actions {
   display: flex;
   flex-wrap: wrap;

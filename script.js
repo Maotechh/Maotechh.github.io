@@ -54,4 +54,5 @@ if (emailLink) {
   const emailDomain = ["gmail", "com"].join(".");
   const emailAddress = [emailLocal, emailDomain].join("@");
   emailLink.href = `mailto:${emailAddress}`;
+  emailLink.setAttribute("aria-label", `Email Hanze Li at ${emailAddress}`);
 }
